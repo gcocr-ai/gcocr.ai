@@ -28,8 +28,8 @@ curl_setopt($ch, CURLOPT_POST, true);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
  
 curl_setopt($ch, CURLOPT_HTTPHEADER, [
-    "Content-Type: application/json",
-    "Content-Length: " . strlen($payload))
+    "Content-Type: application/json; charset=utf-8",
+    "Authorization: Bearer " . getenv("GOOGLE_API_TOKEN")
 ];
  
 $result = curl_exec($ch);
