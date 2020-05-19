@@ -1,0 +1,4 @@
+<?php
+
+putenv("GOOGLE_API_URL=");
+putenv("GOOGLE_API_TOKEN=");
