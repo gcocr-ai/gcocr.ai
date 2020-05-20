@@ -2,16 +2,30 @@
 
 require "config.php";
 
-$body = json_decode(file_get_contents("php://input"), true);
+if (isset($_FILES["fileToUpload"]["name"])) {
+    if(isset($_POST["submit"])) {
+        $file_location = $_FILES["fileToUpload"]["tmp_name"];
+        if(!getimagesize($file_location)) {
+            echo 'Not image u idiot';die;
+        }
 
-if (!isset($body['image']) || !is_base64($body['image'])) {
-    echo 'Pls idiot, give img in base ok? thank ;)'; die;
+        $base64_image = base64_encode(file_get_contents($file_location));
+    }
 }
+
+if (!isset($base64_image)) {
+    $body = json_decode(file_get_contents("php://input"), true);
+
+    if (!isset($body['image']) || !is_base64($body['image'])) {
+        echo 'Pls idiot, give img in base ok? thank ;)'; die;
+    }
+}
+
 
 $data = [
     "requests" => [
         "image" => [
-            "content" => $body['image']
+            "content" => isset($base64_image) ? $base64_image : $body['image']
         ],
         "features" => [
             "type" => "DOCUMENT_TEXT_DETECTION"
@@ -37,7 +51,7 @@ curl_close($ch);
 $result_array = json_decode($result, true);
 
 $filename = bin2hex(random_bytes(16));
-file_put_contents('data/' . $filename . '.c', $result_array['responses'][0]['fullTextAnnotation']['text']);
+file_put_contents(__DIR__ . '/data/' . $filename . '.c', $result_array['responses'][0]['fullTextAnnotation']['text']);
 
 $compilation = shell_exec("gcc data/$filename.c -o bin/$filename");
 echo $compilation;
