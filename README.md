@@ -2,7 +2,7 @@
 
 ## Description
 
-This repository contains source code for gcocr.ai that uses advanced artificial intelligence to compile C code from a picture of handwritten notes.
+This repository contains source code for **gcocr.ai** that uses **advanced artificial intelligence** to **compile** C code from a picture of **handwritten notes**.
 
 ## Usage
 
@@ -18,7 +18,7 @@ git clone https://github.com/k0tix/gcocr.ai.git
 cd gcorc.ai
 ```
 
-Then set your environment variables with the help of an example file:
+Then set your environment variables with the help of the provided dummy file `config.php.example`:
 ```bash
 cp config.php.example config.php
 ```
