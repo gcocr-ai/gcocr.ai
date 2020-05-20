@@ -4,6 +4,10 @@ require "config.php";
 
 $body = json_decode(file_get_contents("php://input"), true);
 
+if (!isset($body['image']) || !is_base64($body['image'])) {
+    echo 'Pls idiot, give img in base ok? thank ;)'; die;
+}
+
 $data = [
     "requests" => [
         "image" => [
