@@ -60,12 +60,12 @@ $compilation = shell_exec("gcc $dir/data/$filename.c -o $dir/public/bin/$filenam
 
 if(empty($compilation)){
     echo "<pre>here is program:</pre><br/>";
-    echo "<pre><a href='recyclr.pro/bin/$filename'>link text ;)</a></pre>";
+    echo "<pre><a href='recyclr.pro/bin/$filename'>DOWNLOAD BIN</a></pre>";
 }else{
     echo "<pre>".htmlspecialchars($compilation)."</pre></br>";
     echo "<pre>".htmlspecialchars($result_array['responses'][0]['fullTextAnnotation']['text'])."</pre>";
 }
-
+echo "<pre><a href='https://recyclr.pro/upload.php'>RETURN</a></pre>";
 
 
 function is_base64($s)
