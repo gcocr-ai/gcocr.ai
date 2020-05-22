@@ -55,9 +55,12 @@ $filename = bin2hex(random_bytes(16));
 $dir = __DIR__;
 file_put_contents("$dir/data/$filename.c", $result_array['responses'][0]['fullTextAnnotation']['text']);
 
-$compilation = shell_exec("gcc $dir/data/$filename.c -o $dir/bin/$filename 2>&1");
+$compilation = shell_exec("gcc $dir/data/$filename.c -o $dir/public/bin/$filename 2>&1");
 
-echo "<pre>$compilation</pre>";
+
+
+echo "<pre>$compilation</pre></br>";
+echo "<pre><a href='recyclr.pro/$filename'>link text ;)</a></pre>";
 
 function is_base64($s)
 {
