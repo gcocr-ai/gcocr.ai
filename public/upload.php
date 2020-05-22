@@ -8,7 +8,8 @@
             <fieldset id="sign_up" class="ba b--transparent ph0 mh0">
                 <legend class="f4 fw6 ph0 mh0">Select image to upload:</legend>
                 <div class="mt3">
-                    <input type="file" name="fileToUpload" id="fileToUpload">
+                    <input type="file" name="fileToUpload" id="fileToUpload" accept="image/*;capture=camera" onchange=""> <br />
+
                 </div>
             </fieldset>
             <div class="">
