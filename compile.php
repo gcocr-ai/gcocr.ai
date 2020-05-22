@@ -53,7 +53,7 @@ $result_array = json_decode($result, true);
 $filename = bin2hex(random_bytes(16));
 file_put_contents(__DIR__. '/data/' . $filename . '.c', $result_array['responses'][0]['fullTextAnnotation']['text']);
 
-$compilation = shell_exec("gcc " . __DIR__ . "/data/$filename.c -o $dir/bin/$filename");
+$compilation = shell_exec("gcc " . __DIR__ . "/data/$filename.c -o " . __DIR__ . "/bin/$filename");
 
 echo "<pre>$compilation</pre>";
 
