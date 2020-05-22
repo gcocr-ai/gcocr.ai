@@ -4,7 +4,7 @@
   <title>gcocr.ai</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
-  <body>
+  <body style="background-image: url('https://recyclr.pro/matrix.gif');background-size: cover; color:white;">
     <section class="mw5 mw7-ns center tc pa3 ph5-ns">
         <article class="pa3 pa5-ns">
             <h1 class="f3 f1-m f-headline-l">gcocr.ai</h1>
