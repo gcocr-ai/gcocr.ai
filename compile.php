@@ -58,9 +58,15 @@ file_put_contents("$dir/data/$filename.c", $result_array['responses'][0]['fullTe
 $compilation = shell_exec("gcc $dir/data/$filename.c -o $dir/public/bin/$filename 2>&1");
 
 
+if(empty($compilation)){
+    echo "<pre>here is program:</pre><br/>";
+    echo "<pre><a href='recyclr.pro/bin/$filename'>link text ;)</a></pre>";
+}else{
+    echo "<pre>".htmlspecialchars($compilation)."</pre></br>";
+    echo "<pre>".htmlspecialchars($result_array['responses'][0]['fullTextAnnotation']['text'])."</pre>";
+}
 
-echo "<pre>$compilation</pre></br>";
-echo "<pre><a href='recyclr.pro/bin/$filename'>link text ;)</a></pre>";
+
 
 function is_base64($s)
 {
