@@ -60,7 +60,7 @@ $compilation = shell_exec("gcc $dir/data/$filename.c -o $dir/public/bin/$filenam
 
 
 echo "<pre>$compilation</pre></br>";
-echo "<pre><a href='recyclr.pro/$filename'>link text ;)</a></pre>";
+echo "<pre><a href='recyclr.pro/bin/$filename'>link text ;)</a></pre>";
 
 function is_base64($s)
 {
