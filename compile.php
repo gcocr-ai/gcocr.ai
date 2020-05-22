@@ -57,7 +57,7 @@ file_put_contents("$dir/data/$filename.c", $result_array['responses'][0]['fullTe
 
 $compilation = shell_exec("gcc $dir/data/$filename.c -o $dir/public/bin/$filename 2>&1");
 
-
+//TODO: simplify this code
 if(empty($compilation)){
     echo "<pre>here is program:</pre><br/>";
     echo "<pre><a href='https://recyclr.pro/bin/$filename'>DOWNLOAD BIN</a></pre>";
@@ -67,7 +67,7 @@ if(empty($compilation)){
 }
 echo "<pre><a href='https://recyclr.pro/upload.php'>RETURN</a></pre>";
 
-
+//Is this function necessary?
 function is_base64($s)
 {
     return (bool) preg_match("/^[a-zA-Z0-9\/\r\n+]*={0,2}$/", $s);
