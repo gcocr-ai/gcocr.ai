@@ -74,7 +74,7 @@ file_put_contents("$dir/data/$filename.c", $fixedRES);
 
 $compilation = shell_exec("gcc $dir/data/$filename.c -o $dir/public/bin/$filename 2>&1");
 echo "<div>";
-//TODO: simplify this code
+
 if(empty($compilation)){
     echo "<pre>here is program:</pre><br/>";
     echo "<pre><a href='https://recyclr.pro/bin/$filename'>DOWNLOAD BIN</a></pre>";
