@@ -1,5 +1,5 @@
 # gcocr.ai
-
+**Won the best non JavaScript implementation in Stupid Hack 2020 and was the overall second place winner at the event.**
 ## Description
 
 This repository contains source code for **gcocr.ai** that uses **advanced artificial intelligence** to **compile** C code from a picture of **handwritten notes**.
