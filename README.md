@@ -6,6 +6,8 @@ This repository contains source code for **gcocr.ai** that uses **advanced artif
 
 A working demo can be found at ~~gcocr.ai~~ [recyclr.pro](https://recyclr.pro) (we did not have money for new domain, so we recycled an older one).
 
+[Here is the demo video](https://vimeo.com/421868558) (NOTE, the video is extremely loud, [@nousiaa](https://github.com/nousiaa) did not know how to use Windows Movie Maker)
+
 ## Usage
 
 ### Requirements
