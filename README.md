@@ -4,6 +4,8 @@
 
 This repository contains source code for **gcocr.ai** that uses **advanced artificial intelligence** to **compile** C code from a picture of **handwritten notes**.
 
+A working demo can be found at ~~gcocr.ai~~ [recyclr.pro](https://recyclr.pro) (we did not have money for new domain, so we recycled an older one).
+
 ## Usage
 
 ### Requirements
