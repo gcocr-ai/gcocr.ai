@@ -29,6 +29,9 @@ $data = [
         ],
         "features" => [
             "type" => "DOCUMENT_TEXT_DETECTION"
+        ],
+        "imageContext" => [
+            "languageHints" => ["fi-t-i0-handwrit"]
         ]
     ]
 ];
