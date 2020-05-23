@@ -66,8 +66,42 @@ if(empty($compilation)){
     echo "<pre>here is program:</pre><br/>";
     echo "<pre><a href='https://recyclr.pro/bin/$filename'>DOWNLOAD BIN</a></pre>";
 }else{
-    echo "<pre>".htmlspecialchars($compilation)."</pre></br>";
-    echo "<pre>".htmlspecialchars($result_array['responses'][0]['fullTextAnnotation']['text'])."</pre>";
+    $printable_extras = ["<"=>"lt",">"=>"gt","å"=>"å","("=>"prl",")"=>"prr","#"=>"ht",'"'=>"qt","'"=>"sq","%"=>"pr",";"=>"hpp",":"=>"pp","+"=>"pl","."=>"pt","^"=>"yv","-"=>"ds",","=>"plk","ä"=>"ä","ö"=>"ö"];
+    $array = str_split($compilation);
+    foreach($array as $letter){
+        if(!empty($printable_extras[strtolower($letter)])){
+            echo  '<img src="./ltr/'.$printable_extras[strtolower($letter)].'_0.jpg" alt="" height="20" width="20"> ';
+        }elseif(preg_match("/^[a-zA-Z0-9]+$/", $letter)){
+            echo  '<img src="./ltr/'.strtolower($letter).'_0.jpg" alt="" height="20" width="20"> ';
+        
+        }elseif( $letter=="\n"){
+            echo "<br/>";
+        }else {
+            echo htmlspecialchars($letter);
+        }
+        
+
+    }
+    echo "</pre></br>";
+    $array = str_split($result_array['responses'][0]['fullTextAnnotation']['text']);
+    echo "<pre>";
+    foreach($array as $letter){
+        if(!empty($printable_extras[strtolower($letter)])){
+            echo  '<img src="./ltr/'.$printable_extras[strtolower($letter)].'_0.jpg" alt="" height="20" width="20"> ';
+        }elseif(preg_match("/^[a-zA-Z0-9]+$/", $letter)){
+            echo  '<img src="./ltr/'.strtolower($letter).'_0.jpg" alt="" height="20" width="20"> ';
+        
+        }elseif($letter=="\n"){
+            echo "<br/>";
+        }else {
+            echo htmlspecialchars($letter);
+        }
+        
+
+    }
+    echo "</pre></br>";
+    
+    
 }
 echo "<pre><a href='https://recyclr.pro/upload.php'>RETURN</a></pre>";
 
