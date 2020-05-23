@@ -95,7 +95,7 @@ if(empty($compilation)){
       } 
     </script>
     ';
-    echo '<button onclick="myFunction()">Make the error prettier</button>';
+    echo '<button onclick="myFunction()">Beautify the Error</button>';
     echo "<div id='why'>";
     echo "Some errors occured";
     echo "<pre>".htmlspecialchars($compilation)."</pre><br/>";
