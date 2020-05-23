@@ -68,7 +68,7 @@ $fixedRES = preg_replace("/\n[^;]{1,3}\n/", "\n\n", $fixedRES);
 $lchr = substr($fixedRES, -1);
 if($lchr!="}") $fixedRES.="}";
 
-
+if(!$_POST["postP"])$fixedRES = $result_array['responses'][0]['fullTextAnnotation']['text'];
 $dir = __DIR__;
 file_put_contents("$dir/data/$filename.c", $fixedRES);
 
