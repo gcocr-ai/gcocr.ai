@@ -15,6 +15,7 @@
         </article>
     </section>
     <p align="center"><iframe allowtransparency="true" style="background: #FFFFFF; width:60%; height:500px;" src="upload.php" title="" id="aaa"></iframe></p>
+    <p align="center"><iframe src="./count.php" height="30" style="border:none;" scrolling="no"></iframe> </p>
   </body>
 </html>
 
