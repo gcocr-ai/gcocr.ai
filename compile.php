@@ -52,16 +52,54 @@ $result_array = json_decode($result, true);
 
 $filename = bin2hex(random_bytes(16));
 
+$fixedRES = $result_array['responses'][0]['fullTextAnnotation']['text'];
+$fixedRES = preg_replace("/\ \n/", "\n", $fixedRES);
+$fixedRES = preg_replace("/j\n/", ";\n", $fixedRES);
+$fixedRES = preg_replace("/i\n/", ";\n", $fixedRES);
+$fixedRES = preg_replace("/returno\n/", "return 0;\n", $fixedRES);
+$fixedRES = preg_replace("/return O;\n/", "return 0;\n", $fixedRES);
+$fixedRES = preg_replace("/return o;\n/", "return 0;\n", $fixedRES);
+$fixedRES = preg_replace("/return i;\n/", "return 1;\n", $fixedRES);
+$fixedRES = preg_replace("/\(\)\n/", "(){\n", $fixedRES);
+$fixedRES = preg_replace("/\n[^;]{1,3}\n/", "\n\n", $fixedRES);
+$lchr = substr($fixedRES, -1);
+if($lchr!="}") $fixedRES.="}";
+
+
 $dir = __DIR__;
-file_put_contents("$dir/data/$filename.c", $result_array['responses'][0]['fullTextAnnotation']['text']);
+file_put_contents("$dir/data/$filename.c", $fixedRES);
 
 $compilation = shell_exec("gcc $dir/data/$filename.c -o $dir/public/bin/$filename 2>&1");
-
+echo "<div>";
 //TODO: simplify this code
 if(empty($compilation)){
     echo "<pre>here is program:</pre><br/>";
     echo "<pre><a href='https://recyclr.pro/bin/$filename'>DOWNLOAD BIN</a></pre>";
 }else{
+    
+    echo '
+    <script>
+    function myFunction() {
+        var x = document.getElementById("why");
+        var y = document.getElementById("noMore");
+        if (x.style.display === "none") {
+          x.style.display = "";
+          y.style.display = "none";
+        } else {
+          x.style.display = "none";
+          y.style.display = "";
+        }
+      } 
+    </script>
+    ';
+    echo '<button onclick="myFunction()">Make the error prettier</button>';
+    echo "<div id='why'>";
+    echo "Some errors occured";
+    echo "<pre>".htmlspecialchars($compilation)."</pre><br/>";
+    echo "<pre>".htmlspecialchars($result_array['responses'][0]['fullTextAnnotation']['text'])."</pre><br/>";
+    echo "<pre>".htmlspecialchars($fixedRES)."</pre>";
+    echo "</div>";
+    echo "<div id='noMore' style='display:none;'>";
     $printable_extras = ["<"=>"lt",">"=>"gt","å"=>"å","("=>"prl",")"=>"prr","#"=>"ht",'"'=>"qt","'"=>"sq","%"=>"pr",";"=>"hpp",":"=>"pp","+"=>"pl","."=>"pt","^"=>"yv","-"=>"ds",","=>"plk","ä"=>"ä","ö"=>"ö"];
     $array = str_split($compilation);
     foreach($array as $letter){
@@ -79,7 +117,7 @@ if(empty($compilation)){
 
     }
     echo "</pre></br>";
-    $array = str_split($result_array['responses'][0]['fullTextAnnotation']['text']);
+    $array = str_split($fixedRES);
     echo "<pre>";
     foreach($array as $letter){
         if(!empty($printable_extras[strtolower($letter)])){
@@ -97,10 +135,10 @@ if(empty($compilation)){
     }
     echo "</pre></br>";
     
-    
+    echo "</div>";
 }
 echo "<pre><a href='https://recyclr.pro/upload.php'>RETURN</a></pre>";
-
+echo "</div>";
 //Is this function necessary?
 function is_base64($s)
 {
