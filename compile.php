@@ -97,10 +97,16 @@ if(empty($compilation)){
     ';
     echo '<button onclick="myFunction()">Beautify the Error</button>';
     echo "<div id='why'>";
-    echo "Some errors occured";
+    echo "Some errors occured:<br/>";
     echo "<pre>".htmlspecialchars($compilation)."</pre><br/>";
+
+    echo "Original code:<br/>";
     echo "<pre>".htmlspecialchars($result_array['responses'][0]['fullTextAnnotation']['text'])."</pre><br/>";
-    echo "<pre>".htmlspecialchars($fixedRES)."</pre>";
+    if($_POST["postP"])  {
+        echo "Enhanced code:<br/>";
+        echo "<pre>".htmlspecialchars($fixedRES)."</pre>";
+    }
+
     echo "</div>";
     echo "<div id='noMore' style='display:none;'>";
     $printable_extras = ["<"=>"lt",">"=>"gt","å"=>"å","("=>"prl",")"=>"prr","#"=>"ht",'"'=>"qt","'"=>"sq","%"=>"pr",";"=>"hpp",":"=>"pp","+"=>"pl","."=>"pt","^"=>"yv","-"=>"ds",","=>"plk","ä"=>"ä","ö"=>"ö"];
