@@ -11,6 +11,10 @@
                     <input type="file" name="fileToUpload" id="fileToUpload" accept="image/*;capture=camera" onchange=""> <br />
 
                 </div>
+                <legend class="f4 fw6 ph0 mh0">Use advanced post-processing</legend>
+                <div class="mt3">
+                    <input type="checkbox" id="postP" name="postP" checked> <br />
+                </div>
             </fieldset>
             <div class="">
                 <input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" type="submit" value="Upload Image" name="submit" onClick="document.getElementById('load').style.display = '';return true;">
