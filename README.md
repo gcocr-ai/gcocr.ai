@@ -18,7 +18,7 @@ Make sure you have php (version 7 or higher) installed and that the curl extensi
 
 To run a mirror of the service locally, first:
 ```bash
-git clone https://github.com/k0tix/gcocr.ai.git
+git clone https://github.com/gcocr_ai/gcocr.ai.git
 cd gcorc.ai
 ```
 
